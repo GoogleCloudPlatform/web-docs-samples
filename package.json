@@ -1,0 +1,61 @@
+{
+  "name": "web-docs-samples",
+  "description": "Web samples found on https://cloud.google.com.",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Google, Inc.",
+  "contributors": [
+    {
+      "name": "Tim Swast",
+      "email": "swast@google.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoogleCloudPlatform/web-docs-samples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GoogleCloudPlatform/web-docs-samples/issues"
+  },
+  "homepage": "https://github.com/GoogleCloudPlatform/web-docs-samples#readme",
+  "semistandard": {
+    "globals": [
+      "$",
+      "assert",
+      "before",
+      "describe",
+      "Event",
+      "fail",
+      "FileReader",
+      "Image",
+      "it",
+      "processFile",
+      "XMLHttpRequest"
+    ],
+    "ignore": [
+      "**/node_modules/**",
+      "coverage/",
+      "vision/browser/key.js"
+    ]
+  },
+  "scripts": {
+    "karma": "karma start vision/explore-api/karma.conf.js",
+    "lint": "semistandard \"**/*.js\"",
+    "test": "npm run lint && npm run karma"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^1.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.0",
+    "karma-detect-browsers": "^2.1.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "mocha": "^2.5.3",
+    "semistandard": "^8.0.0"
+  }
+}
