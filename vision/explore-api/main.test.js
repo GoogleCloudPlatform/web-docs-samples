@@ -14,7 +14,7 @@
 'use strict';
 
 describe('vision/explore-api/main.js', function () {
-  this.timeout(30000);
+  this.timeout(60000);
 
   before(function (done) {
     var fileform = document.createElement('form');
