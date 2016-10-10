@@ -13,8 +13,6 @@
 
 'use strict';
 
-// Expecting this line in file named key.js
-// window.apiKey = "[YOUR API KEY HERE]"
 var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?key=' + window.apiKey;
 
 $(document).ready(function () {
