@@ -1,9 +1,11 @@
-# Copyright 2016, Google, Inc.
+#!/usr/bin/env bash
+# Copyright 2016 Google Inc. All Rights Reserved.
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -11,7 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-sudo: false
-language: node_js
-node_js:
-- "6"
+set -e
+
+# Decrypt secrets if not on an external PR.
+if [[ ! -z "$WEBDOCSSAMPLES_SECRETS_PASSWORD" ]]; then
+  openssl aes-256-cbc -k "$WEBDOCSSAMPLES_SECRETS_PASSWORD" -in secrets.tar.enc -out secrets.tar -d;
+  tar xvf secrets.tar;
+  npm run test
+else
+  echo "Running from external PR, just run lint."
+  npm run lint
+fi
+
