@@ -15,7 +15,7 @@
 
 var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?key=' + window.apiKey;
 
-$(document).ready(function () {
+$(function () {
   $('#fileform').on('submit', uploadFiles);
 });
 
