@@ -16,8 +16,8 @@
 set -e
 
 # Decrypt secrets if not on an external PR.
-if [[ ! -z "$WEBDOCSSAMPLES_SECRETS_PASSWORD" ]]; then
-  openssl aes-256-cbc -k "$WEBDOCSSAMPLES_SECRETS_PASSWORD" -in secrets.tar.enc -out secrets.tar -d;
+if [[ $TRAVIS_SECURE_ENV_VARS == "true" ]]; then
+  openssl aes-256-cbc -k "$secrets_password" -in secrets.tar.enc -out secrets.tar -d;
   tar xvf secrets.tar;
   npm run test
 else
