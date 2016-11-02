@@ -8,3 +8,11 @@ Before we can accept your pull requests you'll need to sign a Contributor Licens
 * If you work for a company that wants to allow you to contribute your work, then you'll need to sign a [corporate CLA](https://developers.google.com/open-source/cla/corporate>).
 
 You can sign these electronically (just scroll to the bottom). After that, we'll be able to accept your pull requests.
+
+Style
+-----
+
+Samples in this repository follow the [JavaScript Semi-Standard
+Style](https://github.com/Flet/semistandard).
+
+You can run `npm run lint` to match our JavaScript coding standards.
