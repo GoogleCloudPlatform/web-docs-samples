@@ -5,7 +5,7 @@ This directory contains [Cloud Vision API](https://cloud.google.com/vision/) Cli
 ## Prereqisites
 1. [Sign up for Google Cloud Platform Account](http://cloud.google.com)
 2. [Enable Cloud Vision API](https://cloud.google.com/vision/docs/getting-started)
-3. [Create a Browser Key](https://cloud.google.com/vision/docs/auth-template/cloud-api-auth) for making calls to Cloud Vision API
+3. [Create a Browser Key](https://cloud.google.com/vision/docs/common/auth) for making calls to Cloud Vision API
 
 
 ## Setup
