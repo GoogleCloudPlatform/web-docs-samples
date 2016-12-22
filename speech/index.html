@@ -19,16 +19,10 @@
 <html>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="js/app.js"></script>
-<head>
-  <script type="text/javascript">
-  // Replace with an API key from https://console.cloud.google.com
-  gConfig = { 'apiKey': "YOUR_API_KEY" }
-  </script>
-
-</head>
+  <script src="key.js"></script>
 <body>
   <div id="post-load-div" style="display:none">
-    <!-- starts hidden -->
+    <!-- Hidden until gapi loads -->
     <p>
       <input type="file" id="inputFile"></input>
       <button onClick="handleFile()">Transcribe</button>
@@ -36,7 +30,6 @@
     <p>
       <textarea id="results" style="width:500px; height:200px;"></textarea>
     </p>
-    <!-- revealed after gapi loads --!>
   </div>
   <script src="https://apis.google.com/js/client:api.js?onload=initGapi"></script>
 </body>

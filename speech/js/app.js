@@ -15,15 +15,9 @@
  * limitations under the License.
  */
 
-/**
- *  Various Globals and initialization.
- */
-var audioRecorder; // Stores WebRTC helper
-var gConfig; // Configuration loaded from JSON
-
 function initGapi () {
   console.log('loading gapi');
-  gapi.client.setApiKey(gConfig.apiKey);
+  gapi.client.setApiKey(apiKey);
 
   // Load the speech client library and present the demo UI
   gapi.client.load('speech', 'v1beta1', function () {
