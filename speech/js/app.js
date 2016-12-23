@@ -14,6 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var apiKey = apiKey || {};
+var gapi = gapi || {};
 
 function initGapi () {
   console.log('loading gapi');
@@ -23,13 +25,12 @@ function initGapi () {
   gapi.client.load('speech', 'v1beta1', function () {
     document.getElementById('post-load-div').style.display = 'block';
   });
-
 }
 
 /**
  * Used to send file to speech API when user clicks transcribe button.
  */
-function handleFile() {
+function handleFile () {
   var selectedFile = $('#inputFile')[0].files[0];
   sendBlobToSpeech(selectedFile, 'flac', 16000);
 }

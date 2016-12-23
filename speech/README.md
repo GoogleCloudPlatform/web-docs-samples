@@ -13,7 +13,9 @@ Client Side JS samples.
 1. Rename the file *key.js.example* to *key.js*.
 2. Update the line `var apiKey = 'YOUR API KEY HERE';` in *key.js* with your
 API key.
-3. Start a web server in the sample folder and navigate to index.html.
+3. Start a web server in the sample folder and navigate to index.html. For
+example, `python -m SimpleHTTPServer` or
+`npm install -g httpserver && httpserver 8080`.
 
 From here, the demo allows you to upload sound files and process them using the
 Cloud Speech API. An example audio file, `resources/audio.flac` is included for
