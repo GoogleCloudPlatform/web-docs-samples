@@ -53,7 +53,7 @@ describe('speech/explore-api/js/app.js', function () {
 
   it('Shows UI after GAPI load.', function (done) {
     initGapi();
-    assert(document.getElementById('post-load-div').style.display == 'block');
+    assert(document.getElementById('post-load-div').style.display === 'block');
     done();
   });
 
