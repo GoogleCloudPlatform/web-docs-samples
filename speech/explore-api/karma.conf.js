@@ -30,7 +30,6 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js',
-      './speech/explore-api/key.js',
       './speech/explore-api/js/app.js',
       './speech/explore-api/js/app.test.js',
       './speech/explore-api/mocks/audio.flac.js',
