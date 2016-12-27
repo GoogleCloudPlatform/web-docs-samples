@@ -44,22 +44,37 @@ function handleFile () {
  */
 function sendBlobToSpeech (blob, encoding, rate) {
   var speechSender = new FileReader();
+  var callback = function (r) {
+    if (r.results && r.results[0]) {
+      // Append top result
+      $('#results').val((r.results[0].alternatives[0].transcript) + '\n-\n' +
+          $('#results').val());
+    }
+  };
   speechSender.addEventListener('loadend', function () {
-    gapi.client.speech.speech.syncrecognize({
-      config: {
-        encoding: encoding,
-        sampleRate: rate
-      },
-      audio: {
-        content: btoa(speechSender.result)
-      }
-    }).execute(function (r) {
-      if (r.results && r.results[0]) {
-        // Append top result
-        $('#results').val((r.results[0].alternatives[0].transcript) + '\n-\n' +
-            $('#results').val());
-      }
-    });
+    sendBytesToSpeech(btoa(speechSender.result), encoding, rate, callback);
   });
   speechSender.readAsBinaryString(blob);
+}
+
+/**
+ * Sends post data to the speech API endpoint.
+ *
+ * @param bytes The raw data to send.
+ * @param encoding The encoding for the data transcribe.
+ * @param rate The rate that the data is encoded at.
+ * @param callback A function to send result data to.
+ */
+function sendBytesToSpeech (bytes, encoding, rate, callback) {
+  gapi.client.speech.speech.syncrecognize({
+    config: {
+      encoding: encoding,
+      sampleRate: rate
+    },
+    audio: {
+      content: bytes
+    }
+  }).execute(function (r) {
+    callback(r);
+  });
 }
