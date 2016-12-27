@@ -35,3 +35,20 @@ describe('speech/explore-api/js/app.js', function () {
     done();
   });
 });
+
+describe('speech/explore-api/js/app.js', function () {
+  var result = {};
+  before(function (done) {
+    var resultsTextArea = document.createElement('textarea');
+    resultsTextArea.id = 'results';
+    document.body.appendChild(resultsTextArea);
+
+    done();
+  });
+  it('Updates UI.', function (done) {
+    sendBytesToSpeech(mockAudio, 'FLAC', 16000, uiCallback);
+    console.log(document.getElementById('results'));
+    assert(document.getElementById('results').value.indexOf('Bridge') > 0);
+    done();
+  });
+});

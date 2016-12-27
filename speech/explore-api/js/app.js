@@ -36,6 +36,20 @@ function handleFile () {
 }
 
 /**
+ * Callback used to update sample UI when transcription completes.
+ *
+ * @param r The data from the API call containing an array of transcription
+ *          results.
+ */
+function uiCallback (r) {
+  if (r.results && r.results[0]) {
+    // Append top result
+    $('#results').val((r.results[0].alternatives[0].transcript) + '\n-\n' +
+        $('#results').val());
+  }
+}
+
+/**
  * Sends a file blob to the speech API endpoint.
  *
  * @param blob the Blob to send.
@@ -44,15 +58,8 @@ function handleFile () {
  */
 function sendBlobToSpeech (blob, encoding, rate) {
   var speechSender = new FileReader();
-  var callback = function (r) {
-    if (r.results && r.results[0]) {
-      // Append top result
-      $('#results').val((r.results[0].alternatives[0].transcript) + '\n-\n' +
-          $('#results').val());
-    }
-  };
   speechSender.addEventListener('loadend', function () {
-    sendBytesToSpeech(btoa(speechSender.result), encoding, rate, callback);
+    sendBytesToSpeech(btoa(speechSender.result), encoding, rate, uiCallback);
   });
   speechSender.readAsBinaryString(blob);
 }
