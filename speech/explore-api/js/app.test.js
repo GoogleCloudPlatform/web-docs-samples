@@ -37,7 +37,6 @@ describe('speech/explore-api/js/app.js', function () {
 });
 
 describe('speech/explore-api/js/app.js', function () {
-  var result = {};
   before(function (done) {
     var resultsTextArea = document.createElement('textarea');
     resultsTextArea.id = 'results';
@@ -52,14 +51,17 @@ describe('speech/explore-api/js/app.js', function () {
   });
 
   it('Shows UI after GAPI load.', function (done) {
+    /* eslint-disable no-undef */
     initGapi();
+    /* eslint-enable no-undef */
     assert(document.getElementById('post-load-div').style.display === 'block');
     done();
   });
 
   it('Updates results UI.', function (done) {
+    /* eslint-disable no-undef */
     sendBytesToSpeech(mockAudio, 'FLAC', 16000, uiCallback);
-    console.log(document.getElementById('results'));
+    /* eslint-enable no-undef */
     assert(document.getElementById('results').value.indexOf('Bridge') > 0);
     done();
   });

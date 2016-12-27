@@ -17,6 +17,7 @@
 var apiKey = apiKey || {};
 var gapi = gapi || {};
 
+/* eslint-disable no-unused-vars */
 function initGapi () {
   console.log('loading gapi');
   gapi.client.setApiKey(apiKey);
@@ -26,14 +27,17 @@ function initGapi () {
     document.getElementById('post-load-div').style.display = 'block';
   });
 }
+/* eslint-enable no-unused-vars */
 
 /**
  * Used to send file to speech API when user clicks transcribe button.
  */
+/* eslint-disable no-unused-vars */
 function handleFile () {
   var selectedFile = $('#inputFile')[0].files[0];
   sendBlobToSpeech(selectedFile, 'flac', 16000);
 }
+/* eslint-enable no-unused-vars */
 
 /**
  * Callback used to update sample UI when transcription completes.
@@ -44,8 +48,9 @@ function handleFile () {
 function uiCallback (r) {
   if (r.results && r.results[0]) {
     // Append top result
-    $('#results').val((r.results[0].alternatives[0].transcript) + '\n-\n' +
-        $('#results').val());
+    document.getElementById('results').value =
+        r.results[0].alternatives[0].transcript + '\n-\n' +
+        document.getElementById('results').value;
   }
 }
 
@@ -59,7 +64,9 @@ function uiCallback (r) {
 function sendBlobToSpeech (blob, encoding, rate) {
   var speechSender = new FileReader();
   speechSender.addEventListener('loadend', function () {
+    /* eslint-disable no-undef */
     sendBytesToSpeech(btoa(speechSender.result), encoding, rate, uiCallback);
+    /* eslint-enable no-undef */
   });
   speechSender.readAsBinaryString(blob);
 }

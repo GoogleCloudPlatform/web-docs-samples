@@ -18,10 +18,10 @@
 /**
  * Mock Google API Client for test scaffolding.
  */
+/* eslint-disable no-unused-vars */
 var gapi = {
   client: {
     setApiKey: function (key) {
-      console.log(key);
     },
     load: function (endpoint, version, complete) {
       complete(true);
@@ -54,3 +54,4 @@ var gapi = {
     }
   }
 };
+/* eslint-enable no-unused-vars */
