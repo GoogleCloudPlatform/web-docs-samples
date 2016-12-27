@@ -43,9 +43,21 @@ describe('speech/explore-api/js/app.js', function () {
     resultsTextArea.id = 'results';
     document.body.appendChild(resultsTextArea);
 
+    var postLoadDiv = document.createElement('div');
+    postLoadDiv.id = 'post-load-div';
+    postLoadDiv.style.display = 'none';
+    document.body.appendChild(postLoadDiv);
+
     done();
   });
-  it('Updates UI.', function (done) {
+
+  it('Shows UI after GAPI load.', function (done) {
+    initGapi();
+    assert(document.getElementById('post-load-div').style.display == 'block');
+    done();
+  });
+
+  it('Updates results UI.', function (done) {
     sendBytesToSpeech(mockAudio, 'FLAC', 16000, uiCallback);
     console.log(document.getElementById('results'));
     assert(document.getElementById('results').value.indexOf('Bridge') > 0);
