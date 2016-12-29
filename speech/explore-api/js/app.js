@@ -16,6 +16,8 @@
  */
 var apiKey = apiKey || {};
 var gapi = gapi || {};
+var lastDiv;
+var divCount = 0;
 
 /* eslint-disable no-unused-vars */
 function initGapi () {
@@ -47,10 +49,17 @@ function handleFile () {
  */
 function uiCallback (r) {
   if (r.results && r.results[0]) {
-    // Append top result
-    document.getElementById('results').value =
-        r.results[0].alternatives[0].transcript + '\n-\n' +
-        document.getElementById('results').value;
+    // Prepend top result
+    var col = (divCount & 1) ? 'EEE' : 'FFF';
+    divCount++;
+    var div = $('<div style="background:#' + col + ';"></div>');
+    div.html(r.results[0].alternatives[0].transcript);
+    if (!lastDiv) {
+      $('#results').html(div);
+      lastDiv = div;
+    } else {
+      lastDiv.prepend(div);
+    }
   }
 }
 

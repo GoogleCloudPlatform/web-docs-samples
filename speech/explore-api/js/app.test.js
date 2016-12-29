@@ -38,9 +38,9 @@ describe('speech/explore-api/js/app.js', function () {
 
 describe('speech/explore-api/js/app.js', function () {
   before(function (done) {
-    var resultsTextArea = document.createElement('textarea');
-    resultsTextArea.id = 'results';
-    document.body.appendChild(resultsTextArea);
+    var resultsArea = document.createElement('div');
+    resultsArea.id = 'results';
+    document.body.appendChild(resultsArea);
 
     var postLoadDiv = document.createElement('div');
     postLoadDiv.id = 'post-load-div';
@@ -62,7 +62,7 @@ describe('speech/explore-api/js/app.js', function () {
     /* eslint-disable no-undef */
     sendBytesToSpeech(mockAudio, 'FLAC', 16000, uiCallback);
     /* eslint-enable no-undef */
-    assert(document.getElementById('results').value.indexOf('Bridge') > 0);
+    assert(document.getElementById('results').innerText.indexOf('Bridge') > 0);
     done();
   });
 });
