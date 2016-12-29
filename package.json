@@ -41,6 +41,7 @@
   },
   "scripts": {
     "karma": "karma start vision/explore-api/karma.conf.js",
+    "karma": "karma start speech/explore-api/karma.conf.js",
     "lint": "semistandard \"**/*.js\"",
     "test": "npm run lint && npm run karma"
   },
