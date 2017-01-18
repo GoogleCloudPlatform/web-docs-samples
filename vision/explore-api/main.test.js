@@ -35,11 +35,76 @@ describe('vision/explore-api/main.js', function () {
     done();
   });
 
+  /* eslint-disable no-undef */
+  beforeEach(function () {
+    jasmine.Ajax.install();
+  });
+
+  afterEach(function () {
+    jasmine.Ajax.uninstall();
+  });
+  /* eslint-enable no-undef */
+
   it('Should label cats.', function (done) {
-    processFile({target: {result: window.CAT_IMAGE_DATA_URI}});
     document.addEventListener('results-displayed', function (evt) {
       assert(evt.results.indexOf('"description": "cat"') >= 0);
       done();
     });
+
+    processFile({target: {result: window.CAT_IMAGE_DATA_URI}});
+
+    /* eslint-disable no-undef */
+    var request = jasmine.Ajax.requests.mostRecent();
+    /* eslint-enable no-undef */
+
+    var response = {
+      'responses': [
+        {
+          'labelAnnotations': [
+            {
+              'mid': '/m/01yrx',
+              'description': 'cat',
+              'score': 0.9256294
+            },
+            {
+              'mid': '/m/04rky',
+              'description': 'mammal',
+              'score': 0.9081582
+            },
+            {
+              'mid': '/m/01l7qd',
+              'description': 'whiskers',
+              'score': 0.79939437
+            },
+            {
+              'mid': '/m/07k6w8',
+              'description': 'small to medium sized cats',
+              'score': 0.66373956
+            },
+            {
+              'mid': '/m/0307l',
+              'description': 'cat like mammal',
+              'score': 0.6595098
+            },
+            {
+              'mid': '/m/01m3tw',
+              'description': 'animal shelter',
+              'score': 0.5288319
+            }
+          ]
+        }
+      ]
+    };
+
+    request.respondWith({
+      'status': 200,
+      'responseText': JSON.stringify(response)
+    });
+
+    var params = JSON.parse(request.params);
+
+    // Check request parameters are set
+    assert(params.requests[0].image.content.length > 1024);
+    assert(params.requests[0].features[0].maxResults > 0);
   });
 });
