@@ -1,4 +1,4 @@
-// Copyright 2016, Google, Inc.
+// Copyright 2017, Google, Inc.
 // Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -11,9 +11,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Karma configuration
-// Generated on Thu Jul 21 2016 15:49:38 GMT-0700 (PDT)
-
 module.exports = function (config) {
   config.set({
 
@@ -25,15 +22,15 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['chai', 'sinon', 'mocha'],
+    frameworks: ['chai', 'mocha'],
 
     // list of files / patterns to load in the browser
     files: [
-      './vision/explore-api/cat-data.js',
       'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js',
-      './vision/explore-api/key.js',
-      './vision/explore-api/main.js',
-      './vision/explore-api/main.test.js'
+      './speech/explore-api/js/app.js',
+      './speech/explore-api/js/app.test.js',
+      './speech/explore-api/mocks/audio.flac.js',
+      './speech/explore-api/mocks/gapi.speech.js'
     ],
 
     // list of files to exclude
@@ -43,7 +40,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './vision/explore-api/main.js': ['coverage']
+      './speech/explore-api/js/app.js': ['coverage']
     },
 
     // test results reporter to use

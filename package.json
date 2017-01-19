@@ -40,9 +40,10 @@
     ]
   },
   "scripts": {
-    "karma": "karma start vision/explore-api/karma.conf.js",
+    "karma_speech": "karma start speech/explore-api/karma.conf.js",
+    "karma_vision": "karma start vision/explore-api/karma.conf.js",
     "lint": "semistandard \"**/*.js\"",
-    "test": "npm run lint && npm run karma"
+    "test": "npm run lint && npm run karma_speech && npm run karma_vision"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -55,7 +56,9 @@
     "karma-mocha": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-safari-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.5",
     "mocha": "^2.5.3",
-    "semistandard": "^8.0.0"
+    "semistandard": "^8.0.0",
+    "sinon": "^1.17.7"
   }
 }
