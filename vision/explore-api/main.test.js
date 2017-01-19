@@ -50,7 +50,6 @@ describe('vision/explore-api/main.js', function () {
   });
   /* eslint-enable no-undef */
 
-
   var response = {
     'responses': [
       {
@@ -108,7 +107,6 @@ describe('vision/explore-api/main.js', function () {
     done();
   });
 
-
   it('Should label cats.', function (done) {
     document.addEventListener('results-displayed', function (evt) {
       assert(evt.results.indexOf('"description": "cat"') >= 0);
@@ -124,6 +122,5 @@ describe('vision/explore-api/main.js', function () {
       },
       JSON.stringify(response)
     );
-
   });
 });
