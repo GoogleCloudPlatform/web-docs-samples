@@ -73,6 +73,13 @@ module.exports = function (config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    // Increase timeouts for Travis to avoid disconnects.
+    // https://github.com/karma-runner/karma/issues/598
+    captureTimeout: 60000,
+    browserDisconnectTimeout: 10000,
+    browserDisconnectTolerance: 1,
+    browserNoActivityTimeout: 60000
   });
 };

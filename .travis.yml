@@ -1,17 +1,27 @@
-# Copyright 2016, Google, Inc.
+# Copyright 2016 Google Inc. All Rights Reserved.
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 sudo: false
 language: node_js
 node_js:
-- "6"
+- '6'
+env:
+  global:
+    secure: Lc3+DhfAwyuyHhbjbC8YjNMbtsxKCabDgTTSE443dLmckXTFBUj5nW9R9MdHy83ZjaT81GyfUN3aBEk/zYd0by9l7sRg44s+nvKFoj6wqbr+FLZ9cGzo4kLt0yMF5cL+Lmry4bTBRN+XR2UvNVdUlIlySl8+MrCh2AHhNX4hgFWHBSMY9P2ozdPOUTvkedQMqRs2auX5D5M/GE9A21khScL/I5rDKa8DlbPM7iTK5c4hp0HvOzKGUuf1C8ZMLznXO4k/wpG1QA7fEqkpwhXyX4LbZWiHQPeugJiVk/WU6owRnYk2DMBlMOx1DAinkPMRxk+PsNxZiF3Mc/07rp0+9d1Wk/gQBbVEJai3G9REMfcg4D72FoYIsHqZMcMRRtleEsOuaoy1ybrkpbhntRMSLWZ5ggXgLAer6DZZ5gqWz5tTRaMqsfIhRxs4KlaRhADCSkwzbXpZKlvs/KpwkTR1NTixMWOXnSN5bx1sol8m+LHSZy2GFHkk/cLl7nLAXnOkPUaGnYncp4dVd0U2qR0G+fHi3fAIHJXKaLzuDBq/GfqMrn3Y4N20/pvdGdNTrT5hfTNVRyMDV2UcUk8zbwLiHYjQXs73gToj/cx0SIDJGlELIkGxRcbCPHfw46hg6auSonySc94EsnvhCv3mIo7pK3nhloELn9h824HZ+X5hxfQ=
+script:
+- ./scripts/travis.sh
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+branches:
+  only:
+  - master
