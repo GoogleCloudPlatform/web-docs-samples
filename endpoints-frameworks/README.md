@@ -1,6 +1,6 @@
 # Endpoints Frameworks Client
 
-This example shows how to use Google Sign In to make an authenticated request
+This example shows how to use Google Sign-In to make an authenticated request
 to the Endpoints Frameworks sample code running on the App Engine
 standard environment.
 
@@ -31,5 +31,5 @@ Additional details for running the sample JavaScript app will be in the
 Endpoints Frameworks documentation soon. We'll update this README with links
 to the Java and Python versions of the doc.
 
-To learn more about Google Sign In, see [Google Sign-In JavaScript client
+To learn more about Google Sign-In, see [Google Sign-In JavaScript client
 reference](https://developers.google.com/identity/sign-in/web/reference).
