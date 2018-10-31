@@ -24,9 +24,9 @@ function loadAuthClient () {
 // [END load_auth2_library]
 
 // [START init_google_auth]
-function initGoogleAuth () {
+function initGoogleAuth (clientId = 'YOUR_CLIENT_ID') {
   gapi.auth2.init({
-    client_id: 'YOUR_CLIENT_ID',
+    client_id: clientId,
     scope: 'https://www.googleapis.com/auth/userinfo.email'
   }).then(() => {
     document.getElementById('sign-in-btn').disabled = false;
@@ -49,8 +49,7 @@ function signIn () {
 // [END user_signin]
 
 // [START send_sample_request]
-function sendSampleRequest () {
-  var projectId = 'YOUR_PROJECT_ID';
+function sendSampleRequest (projectId = 'YOUR_PROJECT_ID') {
   var user = gapi.auth2.getAuthInstance().currentUser.get();
   var idToken = user.getAuthResponse().id_token;
   var endpoint = `https://${projectId}.appspot.com/_ah/api/echo/v1/email`;
