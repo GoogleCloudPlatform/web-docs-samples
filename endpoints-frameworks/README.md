@@ -15,12 +15,16 @@ To run the sample JavaScript app:
 * You need a web server on your local computer to serve the sample `index.html`
   file, such as Python 2.7's `SimpleHTTPServer`, but you can use any web server.
 
-* You must add the project ID of the project that you used for the Endpoints
-  Frameworks sample API to `index.html`.
+* In `main.js`, replace `YOUR_PROJECT_ID` with the ID of the project that you
+  used for the Endpoints Frameworks sample API.
 
-* You must get a [client
-  ID](https://support.google.com/googleapi/answer/6158849?hl=en) and add it to
-  `index.html` and to the Endpoints Frameworks sample API:
+* Get a [client ID](https://support.google.com/googleapi/answer/6158849?hl=en)
+  and copy it to the clipboard.
+
+* In `main.js`, replace `YOUR_CLIENT_ID` with the  client ID that you just
+  created.
+
+* Add your client ID to the Endpoints Frameworks sample API:
 
     * Java: Replace `YOUR_OAUTH_CLIENT_ID` with your client ID in the `Echo.java`
       file included in the sample.
