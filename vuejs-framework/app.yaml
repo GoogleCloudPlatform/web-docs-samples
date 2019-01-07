@@ -1,0 +1,30 @@
+
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+
+- url: /(.*\.js)
+  static_files: dist/\1
+  upload: dist/(.*)
+
+- url: /(.*\.map)
+  static_files: dist/\1
+  upload: dist/(.*)
+
+- url: /(.*\.css)
+  static_files: dist/\1
+  upload: dist/(.*)
+
+- url: /(.*\.ico)
+  static_files: dist/\1
+  upload: dist/(.*)
+
+- url: /.*
+  static_files: dist/index.html
+  upload: dist/index.html
+
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
