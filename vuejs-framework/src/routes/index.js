@@ -1,15 +1,15 @@
-import Home from '@/pages/Home'
-import Internal from '@/pages/Internal'
+import Home from '@/pages/Home';
+import Internal from '@/pages/Internal';
 
 const routes = [
-    {
-        path : "/",
-        component : Home
-    },
-    {
-        path : "/internal",
-        component : Internal
-    }
-]
+  {
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/internal',
+    component: Internal
+  }
+];
 
 export default routes;
